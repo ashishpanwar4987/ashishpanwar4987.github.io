@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashish Panwar — Marine Engineering · Nuclear Propulsion · AI in Shipping</title>
+<meta name="description" content="Ashish Panwar — Marine Chief Engineer and Principal Surveyor at Indian Register of Shipping. Writing on nuclear propulsion, maritime decarbonisation, and AI in shipping.">
+<style>
+  :root {
+    --navy: #0b2239;
+    --navy-2: #12314f;
+    --steel: #4a6785;
+    --accent: #c9a227;
+    --paper: #f7f5f0;
+    --ink: #1f2933;
+    --muted: #6b7a8c;
+    --line: #dfe3e8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background: var(--paper); color: var(--ink); line-height: 1.65; }
+  .sans { font-family: 'Segoe UI', -apple-system, Helvetica, Arial, sans-serif; }
+
+  header {
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);
+    color: #fff; padding: 72px 24px 56px; text-align: center;
+  }
+  header h1 { font-size: 2.6rem; letter-spacing: 0.5px; margin-bottom: 10px; }
+  header .role { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 1.02rem; color: #c8d4e0; margin-bottom: 18px; }
+  header .triad {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    display: inline-block; padding: 8px 22px; border: 1px solid rgba(201,162,39,.7);
+    border-radius: 999px; color: var(--accent); font-size: .95rem; letter-spacing: 1.5px; text-transform: uppercase;
+  }
+  nav { background: var(--navy); position: sticky; top: 0; z-index: 10; text-align: center; padding: 12px 8px; }
+  nav a { color: #d8e1ea; text-decoration: none; margin: 0 16px; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: .92rem; letter-spacing: .8px; text-transform: uppercase; }
+  nav a:hover { color: var(--accent); }
+
+  main { max-width: 880px; margin: 0 auto; padding: 24px; }
+  section { padding: 48px 0 8px; }
+  h2 { font-size: 1.7rem; color: var(--navy); margin-bottom: 6px; }
+  .rule { width: 56px; height: 3px; background: var(--accent); margin: 10px 0 24px; }
+  .series-sub { color: var(--muted); font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: .95rem; margin-bottom: 22px; }
+
+  .about p { margin-bottom: 16px; font-size: 1.05rem; }
+  .about-flex { display: flex; gap: 32px; align-items: flex-start; }
+  .portrait { flex: 0 0 180px; }
+  .portrait img, .portrait .monogram {
+    width: 180px; height: 180px; border-radius: 50%; object-fit: cover;
+    border: 3px solid var(--accent); box-shadow: 0 4px 14px rgba(11,34,57,.18);
+  }
+  .portrait .monogram {
+    align-items: center; justify-content: center; background: var(--navy);
+    color: var(--accent); font-size: 3.2rem; letter-spacing: 2px;
+  }
+  @media (max-width: 640px) { .about-flex { flex-direction: column; align-items: center; text-align: left; } }
+
+  .article { display: flex; gap: 16px; padding: 14px 12px; border-bottom: 1px solid var(--line); align-items: baseline; }
+  .article:hover { background: #efece4; }
+  .num { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; color: var(--accent); font-weight: 600; min-width: 44px; font-size: .95rem; }
+  .article a { color: var(--navy); text-decoration: none; font-size: 1.06rem; }
+  .article a:hover { text-decoration: underline; }
+  .article .topics { display: block; color: var(--muted); font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: .86rem; margin-top: 2px; }
+  .date { margin-left: auto; color: var(--muted); font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: .85rem; white-space: nowrap; }
+
+  .platforms { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 26px; }
+  .platform-card {
+    flex: 1 1 240px; background: #fff; border: 1px solid var(--line); border-radius: 8px;
+    padding: 20px; text-decoration: none; color: var(--ink); transition: box-shadow .15s;
+  }
+  .platform-card:hover { box-shadow: 0 4px 14px rgba(11,34,57,.12); }
+  .platform-card h3 { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 1rem; color: var(--navy); margin-bottom: 6px; }
+  .platform-card p { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: .88rem; color: var(--muted); }
+
+  footer { background: var(--navy); color: #c8d4e0; text-align: center; padding: 40px 24px; margin-top: 56px; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: .92rem; }
+  footer a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    header h1 { font-size: 1.9rem; }
+    .date { display: none; }
+    nav a { margin: 0 8px; font-size: .8rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Ashish Panwar</h1>
+  <div class="role">Marine Chief Engineer &nbsp;·&nbsp; Principal Surveyor &amp; Area Manager (South East Asia), Indian Register of Shipping</div>
+  <div class="triad">Marine Engineering &nbsp;|&nbsp; Nuclear Propulsion &nbsp;|&nbsp; AI in Shipping</div>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#nuclear-pivot">The Nuclear Pivot</a>
+  <a href="#ai-series">AI Series</a>
+  <a href="#platforms">Where I Write</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<main>
+
+<section id="about" class="about">
+  <h2>About</h2>
+  <div class="rule"></div>
+  <div class="about-flex">
+    <div class="portrait">
+      <img src="profile.jpg" alt="Ashish Panwar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="monogram" style="display:none;">AP</div>
+    </div>
+    <div>
+      <p>I am a Marine Chief Engineer by profession and training. I spent years at sea running ships' engine rooms — the machinery spaces where fuel, steel, and heat are turned into motion — before coming ashore into classification. Today I serve as Principal Surveyor and Area Manager (South East Asia) for the Indian Register of Shipping, an IACS member society, based in Singapore.</p>
+      <p>My work sits at a rare intersection. Shipping must decarbonise, and I believe nuclear propulsion — small modular reactors at sea — is the only answer that survives the arithmetic. At the same time, artificial intelligence is reshaping how ships are surveyed, inspected, and operated. The regulatory frameworks for both are being written right now, and I write about them from the surveyor's vantage: the person who has to sign the certificate.</p>
+      <p>Everything I publish across LinkedIn, Medium, and Substack is catalogued here.</p>
+    </div>
+  </div>
+</section>
+
+<section id="nuclear-pivot">
+  <h2>The Nuclear Pivot</h2>
+  <div class="rule"></div>
+  <p class="series-sub">A running series on maritime decarbonisation and why the road leads to nuclear propulsion — from COP milestones and IMO targets through fuel chemistry, efficiency technologies, and reactor engineering. Published on LinkedIn and Medium.</p>
+
+  <div class="article"><span class="num">1</span><span><a href="#">Introduction: Why Nuclear?</a><span class="topics">Global warming effects · Setting the stage</span></span><span class="date">Mar 2026</span></div>
+  <div class="article"><span class="num">2</span><span><a href="#">The Global Response</a><span class="topics">COP milestones · The 1.5°C threshold</span></span><span class="date">Mar 2026</span></div>
+  <div class="article"><span class="num">3</span><span><a href="#">IMO Goals</a><span class="topics">SEEMP, EEXI, EEDI · Reduction targets</span></span><span class="date">Apr 2026</span></div>
+  <div class="article"><span class="num">4</span><span><a href="#">The Trump Factor</a><span class="topics">US opposition to climate action · IMO carbon levy failure</span></span><span class="date">Apr 2026</span></div>
+  <div class="article"><span class="num">4.1</span><span><a href="#">The Trump Factor — Sovereignty, Strategy &amp; Scuttling</a><span class="topics">US diplomatic tactics · IMO net-zero framework</span></span><span class="date">Apr 2026</span></div>
+  <div class="article"><span class="num">4.2</span><span><a href="#">The Indispensable Core — US Economic &amp; Tech Resilience</a><span class="topics">The economic case that sank the framework</span></span><span class="date">Apr 2026</span></div>
+  <div class="article"><span class="num">4.3</span><span><a href="#">The Fire That Did Not Burn — A History of Nuclear Propulsion</a><span class="topics">USS Nautilus · NS Savannah · Soviet icebreakers · RITM-200</span></span><span class="date">May 2026</span></div>
+  <div class="article"><span class="num">4.4</span><span><a href="#">The American Reactor Race — From Executive Orders to Ground Broken</a><span class="topics">OKLO · SMR renaissance · AI power demand</span></span><span class="date">May 2026</span></div>
+  <div class="article"><span class="num">4.5</span><span><a href="#">Inside the Core — Reactor Types, Physics Primer &amp; Essential Terminology</a><span class="topics">PWR vs MSR vs HTGR · TRISO fuel · Glossary</span></span><span class="date">May 2026</span></div>
+  <div class="article"><span class="num">5.1</span><span><a href="#">EU Initiatives</a><span class="topics">FuelEU Maritime · EU ETS · Fit for 55</span></span><span class="date">Apr 2026</span></div>
+  <div class="article"><span class="num">5.2</span><span><a href="#">The Compliance Engine</a><span class="topics">Voyage cost audit · The six-figure compliance burden</span></span><span class="date">Apr 2026</span></div>
+  <div class="article"><span class="num">5.3</span><span><a href="#">The Carbon Exchange — Who Holds the Bill?</a><span class="topics">EUA trading · BIMCO ETSA clause</span></span><span class="date">Apr 2026</span></div>
+  <div class="article"><span class="num">6</span><span><a href="#">The Weight of the Fuel — When Energy Density Decides the Future</a><span class="topics">Ammonia, H₂, HFO, LNG, methanol, fission compared</span></span><span class="date">May 2026</span></div>
+  <div class="article"><span class="num">7.1</span><span><a href="#">Polishing the Hull — The Engineering of Incremental Gains</a><span class="topics">Air lubrication · PBCF · Pre-swirl stators · Antifouling</span></span><span class="date">Jun 2026</span></div>
+  <div class="article"><span class="num">7.2</span><span><a href="#">The Engine Room's Last Stand</a><span class="topics">Shaft generators · Waste heat recovery · Shore power</span></span><span class="date">Jun 2026</span></div>
+  <div class="article"><span class="num">7.3</span><span><a href="#">Catching the Wind</a><span class="topics">Flettner rotors · Sails · Kites · Weather routing</span></span><span class="date">Jun 2026</span></div>
+  <div class="article"><span class="num">7.4</span><span><a href="#">The Arithmetic of Inadequacy — The Sum and the Shortfall</a><span class="topics">All efficiency technologies aggregated vs IMO 2030/2040/2050</span></span><span class="date">Jun 2026</span></div>
+</section>
+
+<section id="ai-series">
+  <h2>AI Through a Marine Engineer's Eyes</h2>
+  <div class="rule"></div>
+  <p class="series-sub">A foundational newsletter that builds AI understanding from first principles — computing history, silicon, programming languages — on the way to machine learning, LLMs, and their application at sea. Written for maritime professionals.</p>
+
+  <div class="article"><span class="num">1</span><span><a href="#">History of Computing</a><span class="topics">Babbage to transistor to microchip</span></span><span class="date">May 2026</span></div>
+  <div class="article"><span class="num">2</span><span><a href="#">Binary &amp; How Computers Think</a><span class="topics">Bits, bytes, Boolean logic</span></span><span class="date">May 2026</span></div>
+  <div class="article"><span class="num">3</span><span><a href="#">Machine Language &amp; Assembly</a><span class="topics">What the CPU actually understands</span></span><span class="date">May 2026</span></div>
+  <div class="article"><span class="num">4</span><span><a href="#">Operating Systems &amp; Memory</a><span class="topics">What sits between code and hardware</span></span><span class="date">May 2026</span></div>
+  <div class="article"><span class="num">4.1</span><span><a href="#">Intel &amp; the x86 Empire</a><span class="topics">From 8086 to Core i9 — the chip that ran the world</span></span><span class="date">May 2026</span></div>
+  <div class="article"><span class="num">4.2</span><span><a href="#">The ARM Revolution</a><span class="topics">RISC architecture · Why mobiles changed silicon</span></span><span class="date">Jun 2026</span></div>
+  <div class="article"><span class="num">4.3</span><span><a href="#">Apple Silicon — the M-Series</a><span class="topics">Unified memory · SoC · AI implications</span></span><span class="date">Jun 2026</span></div>
+  <div class="article"><span class="num">4.4</span><span><a href="#">Chip Wars — the Geopolitics of Silicon</a><span class="topics">TSMC · ASML · Why chips are the new oil</span></span><span class="date">Jun 2026</span></div>
+  <div class="article"><span class="num">4.5</span><span><a href="#">The Parallel Engine</a><span class="topics">CPU vs GPU — why the CPU is not enough for AI</span></span><span class="date">Jun 2026</span></div>
+  <div class="article"><span class="num">5</span><span><a href="#">Compilers &amp; High-Level Languages</a><span class="topics">How human-readable code becomes machine code</span></span><span class="date">Jun 2026</span></div>
+  <div class="article"><span class="num">6</span><span><a href="#">FORTRAN &amp; COBOL</a><span class="topics">The first high-level languages — science &amp; banking</span></span><span class="date">Jul 2026</span></div>
+  <div class="article"><span class="num">15.1</span><span><a href="#">Data — Types, Databases &amp; the Fuel of AI</a><span class="topics">Structured vs unstructured · The Four Vs · Shipboard data</span></span><span class="date">May 2026</span></div>
+</section>
+
+<section id="platforms">
+  <h2>Where I Write</h2>
+  <div class="rule"></div>
+  <div class="platforms">
+    <a class="platform-card" href="https://www.linkedin.com/in/ashishpanwar4987"><h3>LinkedIn Newsletter</h3><p>The Nuclear Pivot and AI Through a Marine Engineer's Eyes — thought leadership for the maritime professional community.</p></a>
+    <a class="platform-card" href="#"><h3>Medium</h3><p>Long-form essays and the full article archive.</p></a>
+    <a class="platform-card" href="#"><h3>Substack</h3><p>Serious technical long-form — nuclear classification survey, AI-assisted PSC inspection, Indian Ocean maritime affairs. Launching 2026.</p></a>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="rule"></div>
+  <p>For collaboration, speaking, or technical discussion: <a href="mailto:ashishpanwar4987@gmail.com" style="color:var(--navy);">ashishpanwar4987@gmail.com</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/ashishpanwar4987" style="color:var(--navy);">LinkedIn</a></p>
+</section>
+
+</main>
+
+<footer>
+  Ashish Panwar · Marine Engineering | Nuclear Propulsion | AI in Shipping<br>
+  Views expressed are personal and do not represent the Indian Register of Shipping.
+</footer>
+
+</body>
+</html>
