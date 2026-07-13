@@ -5,120 +5,228 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ashish Panwar — Marine Engineering · Nuclear Propulsion · AI in Shipping</title>
 <meta name="description" content="Ashish Panwar — Marine Chief Engineer and Principal Surveyor at Indian Register of Shipping. Writing on nuclear propulsion, maritime decarbonisation, and AI in shipping.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #0b2239;
-    --navy-2: #12314f;
-    --steel: #4a6785;
-    --accent: #c9a227;
-    --paper: #f7f5f0;
-    --ink: #1f2933;
-    --muted: #6b7a8c;
-    --line: #dfe3e8;
+    --bg: #0a0e0a;
+    --bg-2: #0f150f;
+    --panel: rgba(163, 230, 53, 0.045);
+    --line: rgba(163, 230, 53, 0.14);
+    --lime: #a3e635;
+    --lime-bright: #d4ff5e;
+    --lime-soft: #bef264;
+    --ink: #e8f0e0;
+    --muted: #8fa38a;
+    --glow: rgba(163, 230, 53, 0.35);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: Georgia, 'Times New Roman', serif; background: var(--paper); color: var(--ink); line-height: 1.65; }
-  .sans { font-family: 'Segoe UI', -apple-system, Helvetica, Arial, sans-serif; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.7;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, .brand { font-family: 'Space Grotesk', 'Inter', sans-serif; }
+
+  /* ambient glows */
+  .orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; }
+  .orb-1 { width: 560px; height: 560px; background: rgba(163,230,53,.09); top: -180px; right: -120px; }
+  .orb-2 { width: 480px; height: 480px; background: rgba(163,230,53,.06); bottom: -160px; left: -140px; }
+
+  /* subtle grid */
+  body::before {
+    content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image: linear-gradient(rgba(163,230,53,.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(163,230,53,.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 40%, transparent 100%);
+  }
+
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;
+    padding: 14px 12px;
+    background: rgba(10, 14, 10, 0.72);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav a {
+    color: var(--muted); text-decoration: none; font-size: .82rem;
+    letter-spacing: .12em; text-transform: uppercase; font-weight: 500;
+    padding: 6px 14px; border-radius: 999px; transition: all .25s;
+  }
+  nav a:hover { color: var(--lime-bright); background: rgba(163,230,53,.08); text-shadow: 0 0 18px var(--glow); }
 
   header {
-    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);
-    color: #fff; padding: 72px 24px 56px; text-align: center;
+    position: relative; z-index: 1; text-align: center;
+    padding: 110px 24px 90px;
   }
-  header h1 { font-size: 2.6rem; letter-spacing: 0.5px; margin-bottom: 10px; }
-  header .role { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 1.02rem; color: #c8d4e0; margin-bottom: 18px; }
-  header .triad {
-    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
-    display: inline-block; padding: 8px 22px; border: 1px solid rgba(201,162,39,.7);
-    border-radius: 999px; color: var(--accent); font-size: .95rem; letter-spacing: 1.5px; text-transform: uppercase;
+  .badge {
+    display: inline-block; font-size: .78rem; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--lime); border: 1px solid var(--line); border-radius: 999px;
+    padding: 8px 22px; margin-bottom: 30px;
+    background: linear-gradient(120deg, rgba(163,230,53,.10), rgba(163,230,53,.02) 60%);
+    box-shadow: 0 0 24px rgba(163,230,53,.12), inset 0 1px 0 rgba(255,255,255,.06);
   }
-  nav { background: var(--navy); position: sticky; top: 0; z-index: 10; text-align: center; padding: 12px 8px; }
-  nav a { color: #d8e1ea; text-decoration: none; margin: 0 16px; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: .92rem; letter-spacing: .8px; text-transform: uppercase; }
-  nav a:hover { color: var(--accent); }
-
-  main { max-width: 880px; margin: 0 auto; padding: 24px; }
-  section { padding: 48px 0 8px; }
-  h2 { font-size: 1.7rem; color: var(--navy); margin-bottom: 6px; }
-  .rule { width: 56px; height: 3px; background: var(--accent); margin: 10px 0 24px; }
-  .series-sub { color: var(--muted); font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: .95rem; margin-bottom: 22px; }
-
-  .about p { margin-bottom: 16px; font-size: 1.05rem; }
-  .about-flex { display: flex; gap: 32px; align-items: flex-start; }
-  .portrait { flex: 0 0 180px; }
-  .portrait img, .portrait .monogram {
-    width: 180px; height: 180px; border-radius: 50%; object-fit: cover;
-    border: 3px solid var(--accent); box-shadow: 0 4px 14px rgba(11,34,57,.18);
+  header h1 {
+    font-size: clamp(2.6rem, 7vw, 4.6rem); font-weight: 700; letter-spacing: -0.02em;
+    background: linear-gradient(100deg, #f2ffe0 20%, var(--lime-bright) 50%, #f2ffe0 80%);
+    background-size: 200% auto;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: shine 6s linear infinite;
+    margin-bottom: 18px;
   }
-  .portrait .monogram {
-    align-items: center; justify-content: center; background: var(--navy);
-    color: var(--accent); font-size: 3.2rem; letter-spacing: 2px;
+  @keyframes shine { to { background-position: 200% center; } }
+  header .role { color: var(--muted); font-size: 1.02rem; max-width: 640px; margin: 0 auto 34px; }
+  header .role strong { color: var(--ink); font-weight: 600; }
+  .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    text-decoration: none; font-weight: 600; font-size: .92rem;
+    padding: 13px 30px; border-radius: 12px; transition: all .25s;
   }
-  @media (max-width: 640px) { .about-flex { flex-direction: column; align-items: center; text-align: left; } }
+  .btn-lime {
+    color: #101503;
+    background: linear-gradient(135deg, var(--lime-bright), var(--lime));
+    box-shadow: 0 4px 28px var(--glow), inset 0 1px 0 rgba(255,255,255,.5);
+  }
+  .btn-lime:hover { transform: translateY(-2px); box-shadow: 0 8px 40px var(--glow); }
+  .btn-ghost { color: var(--lime-soft); border: 1px solid var(--line); background: rgba(163,230,53,.04); }
+  .btn-ghost:hover { border-color: var(--lime); box-shadow: 0 0 24px rgba(163,230,53,.18); }
 
-  .article { display: flex; gap: 16px; padding: 14px 12px; border-bottom: 1px solid var(--line); align-items: baseline; }
-  .article:hover { background: #efece4; }
-  .num { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; color: var(--accent); font-weight: 600; min-width: 44px; font-size: .95rem; }
-  .article a { color: var(--navy); text-decoration: none; font-size: 1.06rem; }
-  .article a:hover { text-decoration: underline; }
-  .article .topics { display: block; color: var(--muted); font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: .86rem; margin-top: 2px; }
-  .date { margin-left: auto; color: var(--muted); font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: .85rem; white-space: nowrap; }
+  main { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; padding: 0 24px 40px; }
+  section { padding: 64px 0 12px; }
+  .sec-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 8px; }
+  .sec-head h2 { font-size: clamp(1.5rem, 3.4vw, 2.1rem); font-weight: 700; letter-spacing: -0.01em; }
+  .sec-head .tick {
+    width: 34px; height: 4px; border-radius: 2px; flex: none; align-self: center;
+    background: linear-gradient(90deg, var(--lime-bright), transparent);
+    box-shadow: 0 0 14px var(--glow);
+  }
+  .series-sub { color: var(--muted); font-size: .95rem; margin-bottom: 26px; max-width: 720px; }
+  .series-sub a { color: var(--lime-soft); text-decoration: none; border-bottom: 1px dotted rgba(163,230,53,.4); }
+  .series-sub a:hover { color: var(--lime-bright); text-shadow: 0 0 14px var(--glow); }
 
-  .platforms { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 26px; }
+  /* about */
+  .about-card {
+    display: flex; gap: 36px; align-items: flex-start;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 20px;
+    padding: 36px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+  }
+  .portrait { flex: 0 0 172px; position: relative; }
+  .portrait img {
+    width: 172px; height: 172px; border-radius: 50%; object-fit: cover; display: block;
+    border: 2px solid rgba(163,230,53,.55);
+    box-shadow: 0 0 0 6px rgba(163,230,53,.08), 0 0 44px var(--glow);
+  }
+  .about-card p { margin-bottom: 15px; font-size: 1.0rem; color: #cfdcc4; }
+  .about-card p:last-child { margin-bottom: 0; }
+  .about-card em { color: var(--lime-soft); font-style: normal; font-weight: 500; }
+
+  /* article list */
+  .article {
+    display: flex; gap: 18px; align-items: baseline;
+    padding: 15px 16px; border-radius: 12px;
+    border: 1px solid transparent; border-bottom: 1px solid rgba(163,230,53,.07);
+    transition: all .22s;
+  }
+  .article:hover {
+    background: rgba(163,230,53,.05); border-color: var(--line);
+    box-shadow: 0 0 24px rgba(163,230,53,.07);
+  }
+  .num {
+    color: var(--lime); font-family: 'Space Grotesk', monospace; font-weight: 600;
+    min-width: 46px; font-size: .88rem; text-shadow: 0 0 12px rgba(163,230,53,.4);
+  }
+  .article a { color: var(--ink); text-decoration: none; font-size: 1.0rem; font-weight: 500; transition: color .2s; }
+  .article a:hover { color: var(--lime-bright); }
+  .article .topics { display: block; color: var(--muted); font-size: .83rem; margin-top: 3px; }
+  .date { margin-left: auto; color: var(--muted); font-size: .8rem; white-space: nowrap; font-family: 'Space Grotesk', sans-serif; }
+
+  /* platforms */
+  .platforms { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 20px; }
   .platform-card {
-    flex: 1 1 240px; background: #fff; border: 1px solid var(--line); border-radius: 8px;
-    padding: 20px; text-decoration: none; color: var(--ink); transition: box-shadow .15s;
+    position: relative; overflow: hidden;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+    padding: 24px; text-decoration: none; transition: all .28s;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
   }
-  .platform-card:hover { box-shadow: 0 4px 14px rgba(11,34,57,.12); }
-  .platform-card h3 { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 1rem; color: var(--navy); margin-bottom: 6px; }
-  .platform-card p { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: .88rem; color: var(--muted); }
+  .platform-card::after {
+    content: ''; position: absolute; top: 0; left: -80%; width: 60%; height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(212,255,94,.10), transparent);
+    transform: skewX(-20deg); transition: left .5s;
+  }
+  .platform-card:hover::after { left: 130%; }
+  .platform-card:hover { border-color: rgba(163,230,53,.4); transform: translateY(-3px); box-shadow: 0 10px 36px rgba(163,230,53,.12); }
+  .platform-card h3 { color: var(--lime-soft); font-size: 1.02rem; margin-bottom: 8px; }
+  .platform-card p { color: var(--muted); font-size: .86rem; }
 
-  footer { background: var(--navy); color: #c8d4e0; text-align: center; padding: 40px 24px; margin-top: 56px; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: .92rem; }
-  footer a { color: var(--accent); text-decoration: none; }
+  /* contact */
+  .contact-line { color: #cfdcc4; font-size: 1.02rem; }
+  .contact-line a { color: var(--lime-soft); text-decoration: none; border-bottom: 1px dotted rgba(163,230,53,.4); }
+  .contact-line a:hover { color: var(--lime-bright); text-shadow: 0 0 14px var(--glow); }
 
-  @media (max-width: 600px) {
-    header h1 { font-size: 1.9rem; }
+  footer {
+    position: relative; z-index: 1; text-align: center; color: var(--muted);
+    font-size: .85rem; padding: 48px 24px 40px; margin-top: 60px;
+    border-top: 1px solid var(--line);
+  }
+  footer .sig { color: var(--lime); font-family: 'Space Grotesk', sans-serif; letter-spacing: .14em; text-transform: uppercase; font-size: .78rem; margin-bottom: 10px; }
+
+  /* reveal animation */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.on { opacity: 1; transform: none; }
+
+  @media (max-width: 680px) {
+    .about-card { flex-direction: column; align-items: center; text-align: left; }
     .date { display: none; }
-    nav a { margin: 0 8px; font-size: .8rem; }
+    header { padding: 70px 20px 60px; }
   }
 </style>
 </head>
 <body>
 
-<header>
-  <h1>Ashish Panwar</h1>
-  <div class="role">Marine Chief Engineer &nbsp;·&nbsp; Principal Surveyor &amp; Area Manager (South East Asia), Indian Register of Shipping</div>
-  <div class="triad">Marine Engineering &nbsp;|&nbsp; Nuclear Propulsion &nbsp;|&nbsp; AI in Shipping</div>
-</header>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
 
 <nav>
   <a href="#about">About</a>
-  <a href="#nuclear-pivot">The Nuclear Pivot</a>
-  <a href="#ai-series">AI Series</a>
+  <a href="#nuclear-pivot">Nuclear Pivot</a>
+  <a href="#ai-series">AI: An Engineer's Log</a>
   <a href="#platforms">Where I Write</a>
   <a href="#contact">Contact</a>
 </nav>
 
+<header>
+  <div class="badge">Marine Engineering &nbsp;|&nbsp; Nuclear Propulsion &nbsp;|&nbsp; AI in Shipping</div>
+  <h1>Ashish Panwar</h1>
+  <p class="role"><strong>Marine Chief Engineer</strong> · Principal Surveyor &amp; Area Manager (South East Asia), Indian Register of Shipping — writing from the intersection where ships, reactors, and algorithms meet.</p>
+  <div class="cta-row">
+    <a class="btn btn-lime" href="#nuclear-pivot">Read the Nuclear Pivot</a>
+    <a class="btn btn-ghost" href="https://www.linkedin.com/in/ashishpanwar4987" target="_blank" rel="noopener">Connect on LinkedIn</a>
+  </div>
+</header>
+
 <main>
 
-<section id="about" class="about">
-  <h2>About</h2>
-  <div class="rule"></div>
-  <div class="about-flex">
-    <div class="portrait">
-      <img src="profile.jpg" alt="Ashish Panwar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-      <div class="monogram" style="display:none;">AP</div>
-    </div>
+<section id="about" class="reveal">
+  <div class="sec-head"><span class="tick"></span><h2>About</h2></div>
+  <div class="about-card">
+    <div class="portrait"><img src="profile.jpg" alt="Ashish Panwar"></div>
     <div>
       <p>I am a Marine Chief Engineer by profession and training. I spent years at sea running ships' engine rooms — the machinery spaces where fuel, steel, and heat are turned into motion — before coming ashore into classification. Today I serve as Principal Surveyor and Area Manager (South East Asia) for the Indian Register of Shipping, an IACS member society, based in Singapore.</p>
-      <p>My work sits at a rare intersection. Shipping must decarbonise, and I believe nuclear propulsion — small modular reactors at sea — is the only answer that survives the arithmetic. At the same time, artificial intelligence is reshaping how ships are surveyed, inspected, and operated. The regulatory frameworks for both are being written right now, and I write about them from the surveyor's vantage: the person who has to sign the certificate.</p>
+      <p>My work sits at a rare intersection. Shipping must decarbonise, and I believe <em>nuclear propulsion — small modular reactors at sea — is the only answer that survives the arithmetic</em>. At the same time, artificial intelligence is reshaping how ships are surveyed, inspected, and operated. The regulatory frameworks for both are being written right now, and I write about them from the surveyor's vantage: the person who has to sign the certificate.</p>
       <p>Everything I publish across LinkedIn, Medium, and Substack is catalogued here.</p>
     </div>
   </div>
 </section>
 
-<section id="nuclear-pivot">
-  <h2>The Nuclear Pivot</h2>
-  <div class="rule"></div>
-  <p class="series-sub">The LinkedIn newsletter <a href="https://www.linkedin.com/newsletters/nuclear-pivot-path-to-2050-7437348618182815744/" style="color:var(--steel);">Nuclear Pivot: Path to 2050</a> — maritime decarbonisation and why the road leads to nuclear propulsion, from COP milestones and IMO targets through fuel chemistry, efficiency technologies, and reactor engineering.</p>
+<section id="nuclear-pivot" class="reveal">
+  <div class="sec-head"><span class="tick"></span><h2>The Nuclear Pivot</h2></div>
+  <p class="series-sub">The LinkedIn newsletter <a href="https://www.linkedin.com/newsletters/nuclear-pivot-path-to-2050-7437348618182815744/" target="_blank" rel="noopener">Nuclear Pivot: Path to 2050</a> — maritime decarbonisation and why the road leads to nuclear propulsion, from COP milestones and IMO targets through fuel chemistry, efficiency technologies, and reactor engineering.</p>
 
   <div class="article"><span class="num">1</span><span><a href="https://www.linkedin.com/pulse/issue-1-introduction-why-we-cant-look-away-ashish-panwar-wkdyc" target="_blank" rel="noopener">The Introduction: Why We Can't Look Away</a><span class="topics">Global warming effects · Setting the stage</span></span><span class="date">Mar 2026</span></div>
   <div class="article"><span class="num">2</span><span><a href="https://www.linkedin.com/pulse/global-response-ashish-panwar-0weoc" target="_blank" rel="noopener">The Global Response</a><span class="topics">COP milestones · The 1.5°C threshold</span></span><span class="date">Mar 2026</span></div>
@@ -142,10 +250,9 @@
   <div class="article"><span class="num">8.0</span><span><a href="https://www.linkedin.com/pulse/article-80-fuel-bazaar-five-ways-keep-burning-ashish-panwar-plfjc" target="_blank" rel="noopener">The Fuel Bazaar — Five Ways to Keep Burning</a><span class="topics">Alternative fuels sub-series opener</span></span><span class="date">Jul 2026</span></div>
 </section>
 
-<section id="ai-series">
-  <h2>AI: An Engineer's Log</h2>
-  <div class="rule"></div>
-  <p class="series-sub">The LinkedIn newsletter <a href="https://www.linkedin.com/newsletters/ai-an-engineer-s-log-7456536366458384385/" style="color:var(--steel);">AI: An Engineer's Log</a> — AI through a marine engineer's eyes, built from first principles: computing history, silicon, programming languages, on the way to machine learning, LLMs, and their application at sea.</p>
+<section id="ai-series" class="reveal">
+  <div class="sec-head"><span class="tick"></span><h2>AI: An Engineer's Log</h2></div>
+  <p class="series-sub">The LinkedIn newsletter <a href="https://www.linkedin.com/newsletters/ai-an-engineer-s-log-7456536366458384385/" target="_blank" rel="noopener">AI: An Engineer's Log</a> — AI through a marine engineer's eyes, built from first principles: computing history, silicon, programming languages, on the way to machine learning, LLMs, and their application at sea.</p>
 
   <div class="article"><span class="num">1</span><span><a href="https://www.linkedin.com/pulse/issue-1-history-computing-ashish-panwar-san0c" target="_blank" rel="noopener">History of Computing</a><span class="topics">Babbage to transistor to microchip</span></span><span class="date">May 2026</span></div>
   <div class="article"><span class="num">2</span><span><a href="https://www.linkedin.com/pulse/issue-2-ones-zeros-ashish-panwar-dfrcc" target="_blank" rel="noopener">Ones and Zeros</a><span class="topics">Bits, bytes, Boolean logic — how computers think</span></span><span class="date">May 2026</span></div>
@@ -161,28 +268,34 @@
   <div class="article"><span class="num">15.1</span><span><a href="#">Data — Types, Databases &amp; the Fuel of AI</a><span class="topics">Structured vs unstructured · The Four Vs · Shipboard data</span></span><span class="date">May 2026</span></div>
 </section>
 
-<section id="platforms">
-  <h2>Where I Write</h2>
-  <div class="rule"></div>
+<section id="platforms" class="reveal">
+  <div class="sec-head"><span class="tick"></span><h2>Where I Write</h2></div>
   <div class="platforms">
-    <a class="platform-card" href="https://www.linkedin.com/in/ashishpanwar4987"><h3>LinkedIn Newsletters</h3><p>Nuclear Pivot: Path to 2050 and AI: An Engineer's Log — thought leadership for the maritime professional community.</p></a>
+    <a class="platform-card" href="https://www.linkedin.com/newsletters/nuclear-pivot-path-to-2050-7437348618182815744/" target="_blank" rel="noopener"><h3>Nuclear Pivot: Path to 2050</h3><p>LinkedIn newsletter — maritime tradition colliding with global regulation, decarbonisation, and the nuclear future.</p></a>
+    <a class="platform-card" href="https://www.linkedin.com/newsletters/ai-an-engineer-s-log-7456536366458384385/" target="_blank" rel="noopener"><h3>AI: An Engineer's Log</h3><p>LinkedIn newsletter — AI from first principles, through a marine engineer's eyes.</p></a>
     <a class="platform-card" href="#"><h3>Medium</h3><p>Long-form essays and the full article archive.</p></a>
     <a class="platform-card" href="#"><h3>Substack</h3><p>Serious technical long-form — nuclear classification survey, AI-assisted PSC inspection, Indian Ocean maritime affairs. Launching 2026.</p></a>
   </div>
 </section>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <div class="rule"></div>
-  <p>For collaboration, speaking, or technical discussion: <a href="mailto:ashishpanwar4987@gmail.com" style="color:var(--navy);">ashishpanwar4987@gmail.com</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/ashishpanwar4987" style="color:var(--navy);">LinkedIn</a></p>
+<section id="contact" class="reveal">
+  <div class="sec-head"><span class="tick"></span><h2>Contact</h2></div>
+  <p class="contact-line">For collaboration, speaking, or technical discussion: <a href="mailto:ashishpanwar4987@gmail.com">ashishpanwar4987@gmail.com</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/ashishpanwar4987" target="_blank" rel="noopener">LinkedIn</a></p>
 </section>
 
 </main>
 
 <footer>
-  Ashish Panwar · Marine Engineering | Nuclear Propulsion | AI in Shipping<br>
-  Views expressed are personal and do not represent the Indian Register of Shipping.
+  <div class="sig">Marine Engineering | Nuclear Propulsion | AI in Shipping</div>
+  Ashish Panwar · Views expressed are personal and do not represent the Indian Register of Shipping.
 </footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
 
 </body>
 </html>
